@@ -53,20 +53,58 @@ let ctaChildren = document.getElementsByClassName("cta-text")[0].children;
 ctaChildren[0].textContent = siteContent.cta.h1;
 ctaChildren[1].textContent = siteContent.cta.button;
 
-let navList = document.getElementsByTagName("nav")[0].children;
+// Nav
+const nav = document.getElementsByTagName("nav")[0];
+let navList = nav.children;
 let navDataList = Object.values(siteContent.nav);
-
-for (const ind in navList) {
-  navList[ind].textContent = navDataList[ind];
+let count = 0;
+for (const navItem of navList) {
+  navItem.textContent = navDataList[count];
+  navItem.style.color = "green";
+  count++;
 }
+
+const navBegin = document.createElement("a");
+navBegin.textContent = "Home";
+const navEnd = document.createElement("a");
+navEnd.textContent = "Request demo";
+navBegin.style.color = "green";
+navEnd.style.color = "green";
+nav.prepend(navBegin);
+nav.append(navEnd);
 
 let midImage = document.getElementById("middle-img");
 midImage.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
 
-let topMainContent = document.getElementsByClassName("text-content");
-let featureNodes = topMainContent[0].children;
-let aboutNodes = topMainContent[1].children;
+let mainContent = document.getElementsByClassName("text-content");
+// top-content
+let featureNodes = mainContent[0].children;
+let aboutNodes = mainContent[1].children;
 featureNodes[0].textContent = siteContent["main-content"]["features-h4"];
 featureNodes[1].textContent = siteContent["main-content"]["features-content"];
 aboutNodes[0].textContent = siteContent["main-content"]["about-h4"];
 aboutNodes[1].textContent = siteContent["main-content"]["about-content"];
+// bottom-content
+let servicesNodes = mainContent[2].children;
+let productNodes = mainContent[3].children;
+let visionNodes = mainContent[4].children;
+servicesNodes[0].textContent = siteContent["main-content"]["services-h4"];
+servicesNodes[1].textContent = siteContent["main-content"]["services-content"];
+productNodes[0].textContent = siteContent["main-content"]["product-h4"];
+productNodes[1].textContent = siteContent["main-content"]["product-content"];
+visionNodes[0].textContent = siteContent["main-content"]["vision-h4"];
+visionNodes[1].textContent = siteContent["main-content"]["vision-content"];
+
+// Contact
+let contactNodes = document.getElementsByClassName("contact")[0].children;
+contactNodes[0].textContent = siteContent.contact["contact-h4"];
+contactNodes[1].textContent = siteContent.contact.address;
+contactNodes[2].textContent = siteContent.contact.phone;
+contactNodes[3].textContent = siteContent.contact.email;
+
+// Footer
+let footer = document.getElementsByTagName("footer")[0];
+footer.children[0].textContent = siteContent.footer.copyright;
+
+// Stylings
+// console.log(navList);
