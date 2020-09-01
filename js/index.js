@@ -76,7 +76,7 @@ nav.append(navEnd);
 let midImage = document.getElementById("middle-img");
 midImage.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
 
-let mainContent = document.getElementsByClassName("text-content");
+let mainContent = document.querySelector(".text-content");
 // top-content
 let featureNodes = mainContent[0].children;
 let aboutNodes = mainContent[1].children;
@@ -96,7 +96,7 @@ visionNodes[0].textContent = siteContent["main-content"]["vision-h4"];
 visionNodes[1].textContent = siteContent["main-content"]["vision-content"];
 
 // Contact
-let contactNodes = document.getElementsByClassName("contact")[0].children;
+let contactNodes = document.querySelector(".contact")[0].children;
 contactNodes[0].textContent = siteContent.contact["contact-h4"];
 contactNodes[1].textContent = siteContent.contact.address;
 contactNodes[2].textContent = siteContent.contact.phone;
